@@ -1,0 +1,175 @@
+@import "tailwindcss";
+
+/* Danone corporate palette — values taken from the official brand theme
+   ("PPT Global Template 1123 - Danone Corporate Brand" → theme1.xml, clrScheme
+   "DANONE ONE"). Client brief (Vicky): fondo blanco, detalles en azul. */
+@theme {
+  --color-bg: #ffffff;
+  --color-surface: #f7f9fc;
+  --color-surface-hi: #eef3f9;
+  --color-border: rgba(0, 38, 119, 0.14);
+
+  --color-brand: #005eb8;      /* Danone Blue   — primary */
+  --color-brand-dark: #002677; /* Danone Navy   — headings */
+  --color-brand-aqua: #00aced; /* Danone Aqua   — highlights */
+  --color-danger: #ef3340;     /* Danonino Red  — alerts */
+
+  --color-text: #0f1a2b;
+  --color-text-dim: #5a6b82;
+
+  /* Hazard categories. Kept semantically distinct for the filter chips, but
+     pulled toward the Danone palette where the brand has an equivalent. */
+  --color-cat-atrapamiento: #7c3aed;
+  --color-cat-electrico: #d97706;
+  --color-cat-sup-caliente: #ea580c;
+  --color-cat-corte: #ef3340;
+  --color-cat-golpe: #005eb8;
+  --color-cat-caida: #db2777;
+  --color-cat-quimico: #0f9d76;
+  --color-cat-uv: #00aced;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  /* Brand book specifies "Danone One Condensed / Light" — proprietary, not
+     licensed for web use and not supplied by the client. Requested (plan §3.5).
+     Until the .woff2 files arrive, this stack keeps the geometric-humanist
+     feel of Danone One. Swap in @font-face here when they land. */
+  font-family: "Inter", "Segoe UI", system-ui, Roboto, "Helvetica Neue", Arial,
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overscroll-behavior: none;
+}
+
+/* Hotspot marker rendered via drei <Html> in 3D space: the hazard pictogram +
+   reference number, styled after the client's "Mapa de Riesgos" PDF tags.
+
+   The anchor is a zero-size point pinned to the exact 3D location. When markers
+   would collide on screen, HotspotDeclutter writes --dx/--dy here and the label
+   slides aside while the dot and leader line stay on the real point. */
+.hotspot-anchor {
+  position: relative;
+  width: 0;
+  height: 0;
+  --dx: 0px;
+  --dy: 0px;
+  --lead: 0;
+}
+
+/* The true point, revealed only once its label has been nudged away. */
+.hotspot-anchor::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 7px;
+  height: 7px;
+  margin: -3.5px 0 0 -3.5px;
+  border-radius: 50%;
+  background: #f7c21b;
+  border: 1.5px solid rgba(0, 0, 0, 0.6);
+  opacity: var(--lead);
+  transition: opacity 120ms ease;
+  pointer-events: none;
+}
+
+.hotspot-leader {
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow: visible; /* the line is drawn outside the 1×1 viewport */
+  opacity: var(--lead);
+  transition: opacity 120ms ease;
+  pointer-events: none;
+}
+
+.hotspot-leader line {
+  stroke: rgba(17, 24, 39, 0.6);
+  stroke-width: 1.5;
+  stroke-dasharray: 3 2;
+}
+
+.hotspot-marker {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  padding: 3px 4px 2px;
+  border-radius: 7px;
+  background: #f7c21b;
+  border: 1.5px solid rgba(0, 0, 0, 0.55);
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.35);
+  user-select: none;
+  cursor: pointer;
+  pointer-events: auto;
+  /* --s carries hover/active scale so it composes with the de-clutter offset
+     instead of overwriting it. */
+  --s: 1;
+  transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy)))
+    scale(var(--s));
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+
+.hotspot-marker__icon {
+  width: 26px;
+  height: 26px;
+  display: block;
+  pointer-events: none;
+}
+
+.hotspot-marker__num {
+  min-width: 26px;
+  text-align: center;
+  padding: 0 3px;
+  border-radius: 3px;
+  background: #111827;
+  color: #fff;
+  font-size: 11px;
+  line-height: 15px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.06em;
+}
+
+.hotspot-marker:hover {
+  --s: 1.12;
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.4);
+}
+
+.hotspot-marker[data-active="true"] {
+  --s: 1.18;
+  box-shadow: 0 0 0 3px var(--color-brand), 0 6px 16px rgba(0, 38, 119, 0.4);
+}
+
+.hotspot-marker[data-active="true"] .hotspot-marker__num {
+  background: var(--color-brand);
+}
+
+/* Horizontal filter rail: keep scrollability, drop the scrollbar chrome. */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+/* Panel scroll area — subtle, on-brand scrollbar. */
+.panel-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+.panel-scroll::-webkit-scrollbar-thumb {
+  background: rgba(0, 38, 119, 0.18);
+  border-radius: 9999px;
+}
+.panel-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}

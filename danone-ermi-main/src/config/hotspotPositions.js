@@ -1,0 +1,35 @@
+// Auto-generated surface-anchored default positions (AutoPlacer, normalized space).
+// These sit the 29 markers ON the machine, spread along its length — a sane
+// starting point. Final semantic placement is fine-tuned per point via
+// PositionPicker (?pick=1). Keyed by hotspot id.
+export const HOTSPOT_POSITIONS = {
+  1: { position: [-2.408, 0.051, 0.613], cameraPosition: [0.082, 1.131, 0.362], cameraTarget: [-2.473, 0.025, 0.619] },
+  2: { position: [-2.285, -0.3, 0.05], cameraPosition: [-2.285, 2.421, -0.108], cameraTarget: [-2.285, -0.37, 0.054] },
+  3: { position: [-2.011, 0.028, 0.382], cameraPosition: [0.087, 1.108, 1.746], cameraTarget: [-2.066, 0.002, 0.346] },
+  4: { position: [-2.174, -0.166, 0.693], cameraPosition: [-2.174, 2.479, 1.353], cameraTarget: [-2.174, -0.234, 0.676] },
+  5: { position: [-1.556, 0.018, 0.873], cameraPosition: [-1.556, 1.099, 3.376], cameraTarget: [-1.556, -0.008, 0.808] },
+  6: { position: [-1.624, 0.064, 1.033], cameraPosition: [0.879, 1.145, 1.063], cameraTarget: [-1.689, 0.038, 1.033] },
+  7: { position: [-1.341, -0.002, 1.1], cameraPosition: [-1.406, 1.078, 3.602], cameraTarget: [-1.339, -0.028, 1.035] },
+  8: { position: [-0.891, 0.014, 0.792], cameraPosition: [1.017, 1.095, 2.41], cameraTarget: [-0.941, -0.012, 0.75] },
+  9: { position: [0.963, 0.082, 0.528], cameraPosition: [0.933, 1.163, 3.031], cameraTarget: [0.964, 0.056, 0.463] },
+  10: { position: [1.179, 0.13, 0.486], cameraPosition: [1.62, 2.69, 1.31], cameraTarget: [1.167, 0.064, 0.465] },
+  11: { position: [1.33, 0.018, 0.522], cameraPosition: [2.597, 1.1, 2.68], cameraTarget: [1.297, -0.008, 0.466] },
+  12: { position: [1.33, 0.018, 0.522], cameraPosition: [2.597, 1.1, 2.68], cameraTarget: [1.297, -0.008, 0.466] },
+  13: { position: [1.745, -0.119, 0.44], cameraPosition: [1.745, 1.166, 2.844], cameraTarget: [1.745, -0.152, 0.378] },
+  14: { position: [2.037, -0.011, 0.303], cameraPosition: [4.54, 1.069, 0.303], cameraTarget: [1.972, -0.037, 0.303] },
+  15: { position: [2.165, -0.267, 0.641], cameraPosition: [2.165, 0.813, 3.144], cameraTarget: [2.165, -0.293, 0.576] },
+  16: { position: [2.436, -0.043, 0.411], cameraPosition: [1.268, 1.038, 2.624], cameraTarget: [2.467, -0.069, 0.353] },
+  17: { position: [-1.729, 0.041, -0.247], cameraPosition: [-2.726, 2.078, 1.265], cameraTarget: [-1.704, -0.012, -0.286] },
+  18: { position: [-1.112, -0.008, -0.124], cameraPosition: [1.391, 1.072, -0.124], cameraTarget: [-1.177, -0.034, -0.124] },
+  19: { position: [-0.649, 0.031, -0.139], cameraPosition: [1.854, 1.112, -0.15], cameraTarget: [-0.714, 0.005, -0.138] },
+  20: { position: [-1.626, -0.002, -1.152], cameraPosition: [0.876, 1.078, -1.087], cameraTarget: [-1.691, -0.028, -1.154] },
+  21: { position: [-0.864, -0.16, -0.783], cameraPosition: [1.638, 0.92, -0.848], cameraTarget: [-0.929, -0.186, -0.781] },
+  22: { position: [-0.066, -0.267, -0.124], cameraPosition: [1.437, 1.628, -1.381], cameraTarget: [-0.105, -0.316, -0.092] },
+  23: { position: [0.422, -0.024, 0.19], cameraPosition: [0.426, 1.059, 2.691], cameraTarget: [0.422, -0.051, 0.125] },
+  24: { position: [0.656, -0.301, -0.084], cameraPosition: [2.241, 1.916, -0.122], cameraTarget: [0.615, -0.358, -0.083] },
+  25: { position: [1.653, -0.122, -0.096], cameraPosition: [3.856, 0.961, -1.282], cameraTarget: [1.596, -0.148, -0.065] },
+  26: { position: [1.325, -0.135, -0.05], cameraPosition: [1.325, 2.539, -0.576], cameraTarget: [1.325, -0.204, -0.036] },
+  27: { position: [2.208, -0.035, 0.026], cameraPosition: [2.092, 1.046, 2.525], cameraTarget: [2.211, -0.061, -0.039] },
+  28: { position: [2.458, 0.012, -0.039], cameraPosition: [3.01, 2.647, -0.471], cameraTarget: [2.444, -0.055, -0.028] },
+  29: { position: [2.496, -0.026, -0.069], cameraPosition: [4.314, 1.216, -1.677], cameraTarget: [2.45, -0.058, -0.028] },
+};

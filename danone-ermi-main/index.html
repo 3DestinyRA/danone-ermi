@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#005eb8" />
+
+    <!-- Google Analytics (GA4) — property provided by the client. Base tag loads
+         page views; per-hotspot "hotspot_select" events are fired from the app
+         (see src/utils/analytics.js). -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-H312SHYMCV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag("js", new Date());
+      gtag("config", "G-H312SHYMCV");
+    </script>
+
+    <title>Visor 3D de Seguridad — Ermi + Etiquetadora | Danone · La Serenísima</title>
+    <meta
+      name="description"
+      content="Visor interactivo 3D para capacitación en seguridad industrial en la línea Ermi: 15 puntos de riesgo con descripción, medidas de seguridad y EPP requerido."
+    />
+
+    <!-- Internal training material: keep it out of search indexes. -->
+    <meta name="robots" content="noindex, nofollow" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Visor 3D de Seguridad — Ermi + Etiquetadora"
+    />
+    <meta
+      property="og:description"
+      content="15 puntos de riesgo sobre el modelo 3D de la línea, con EPP y medidas de seguridad."
+    />
+    <meta property="og:image" content="/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="es_AR" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- NOTE: never add a rel=preload/as=fetch hint for the .glb here. Three's
+         GLTFLoader fetches it same-origin with its own loader, so a crossorigin
+         fetch-preload is never reused: the browser downloads all 25 MB TWICE and
+         aborts one (net::ERR_ABORTED), which stalls the loading screen forever.
+         The loader owns that request. -->
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
