@@ -32,7 +32,7 @@ export default function CameraController() {
     // stretch of the line (the rest of the model has no risks), so fit the
     // camera to the hotspots' bounding box + margin — otherwise that section is
     // tiny in frame and the markers pile up. Fall back to the full model.
-    const ids = Object.keys(modelHotspots);
+    /*const ids = Object.keys(modelHotspots);
     let target = new THREE.Vector3(0, 0, 0);
     let fitRadius = modelBounds.radius;
     if (ids.length >= 3) {
@@ -43,7 +43,9 @@ export default function CameraController() {
       }
       target = bb.getCenter(new THREE.Vector3());
       fitRadius = Math.max(bb.getBoundingSphere(new THREE.Sphere()).radius, 0.5) * 1.35;
-    }
+    }*/
+    const target = new THREE.Vector3(0, 0, 0);
+    const fitRadius = modelBounds.radius;
 
     const vFov = THREE.MathUtils.degToRad(camera.fov);
     const hFov = 2 * Math.atan(Math.tan(vFov / 2) * camera.aspect);
